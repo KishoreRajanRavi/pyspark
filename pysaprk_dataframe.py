@@ -1,4 +1,5 @@
-from operations.sql import SparkSession
+from pyspark.sql import SparkSession
+
 # Create a SparkSession
 spark = SparkSession.builder \
     .appName("Test Spark App") \
