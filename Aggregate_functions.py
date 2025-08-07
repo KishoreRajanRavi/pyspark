@@ -2,12 +2,12 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 #all aggregate functions
 
-spark=SparkSession.builder.appName("aggeregate functions").getOrCreate()
+spark=SparkSession.builder.appName("aggeregatefunctions").getOrCreate()
 
 #import the datas and columns from numeric_function file
 from numeric_function import data,columns
 df=spark.createDataFrame(data,columns)
-
+df.show()
 #mean and avg()
 """
 df.select(mean("Salary").alias("Mean Salary")).show()
@@ -40,5 +40,5 @@ df.groupBy("Department").agg(collect_list("Name").alias("All_Names")).show(trunc
 df.groupBy("Department").agg(collect_set("Name").alias("Unique_Names")).show(truncate=False)
 """
 #first and last
-df.select(first("Name").alias("First_Name")).show()
-df.select(last("Name").alias("Last_Name")).show()
+# df.select(first("Name").alias("First_Name")).show()
+# df.select(last("Name").alias("Last_Name")).show()
